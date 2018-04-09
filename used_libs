@@ -2,7 +2,8 @@ libR.so
 libRblas.so
 libRlapack.so
 libc.so.6
+libgcc_s.so.1
 libgfortran.so.4
 libm.so.6
-libopenblas.so.0
 libquadmath.so.0
+libstdc++.so.6
