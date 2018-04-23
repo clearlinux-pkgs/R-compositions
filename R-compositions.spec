@@ -4,7 +4,7 @@
 #
 Name     : R-compositions
 Version  : 1.40.1
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/compositions_1.40-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/compositions_1.40-1.tar.gz
 Summary  : Compositional Data Analysis
