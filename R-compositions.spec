@@ -4,7 +4,7 @@
 #
 Name     : R-compositions
 Version  : 1.40.2
-Release  : 25
+Release  : 26
 URL      : https://cran.r-project.org/src/contrib/compositions_1.40-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/compositions_1.40-2.tar.gz
 Summary  : Compositional Data Analysis
@@ -12,9 +12,7 @@ Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: R-compositions-lib = %{version}-%{release}
 Requires: R-bayesm
-Requires: R-combinat
 Requires: R-energy
-Requires: R-rgl
 Requires: R-robustbase
 Requires: R-tensorA
 BuildRequires : R-bayesm
@@ -24,6 +22,7 @@ BuildRequires : R-rgl
 BuildRequires : R-robustbase
 BuildRequires : R-tensorA
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 No detailed description available
@@ -43,13 +42,13 @@ lib components for the R-compositions package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552730311
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571812566
 
 %install
-export SOURCE_DATE_EPOCH=1552730311
+export SOURCE_DATE_EPOCH=1571812566
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -78,12 +77,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  compositions || :
+R CMD check --no-manual --no-examples --no-codoc compositions || :
 
 
 %files
