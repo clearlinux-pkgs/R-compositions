@@ -4,7 +4,7 @@
 #
 Name     : R-compositions
 Version  : 1.40.5
-Release  : 32
+Release  : 33
 URL      : https://cran.r-project.org/src/contrib/compositions_1.40-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/compositions_1.40-5.tar.gz
 Summary  : Compositional Data Analysis
@@ -12,19 +12,16 @@ Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: R-compositions-lib = %{version}-%{release}
 Requires: R-bayesm
-Requires: R-combinat
-Requires: R-rgl
 Requires: R-robustbase
 Requires: R-tensorA
 BuildRequires : R-bayesm
-BuildRequires : R-combinat
-BuildRequires : R-rgl
 BuildRequires : R-robustbase
 BuildRequires : R-tensorA
 BuildRequires : buildreq-R
 
 %description
-No detailed description available
+data (e.g. portions of substances) and positive numbers (e.g. concentrations) 
+  in the way proposed by J. Aitchison and V. Pawlowsky-Glahn.
 
 %package lib
 Summary: lib components for the R-compositions package.
@@ -36,21 +33,22 @@ lib components for the R-compositions package.
 
 %prep
 %setup -q -c -n compositions
+cd %{_builddir}/compositions
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1586448628
+export SOURCE_DATE_EPOCH=1589785324
 
 %install
-export SOURCE_DATE_EPOCH=1586448628
+export SOURCE_DATE_EPOCH=1589785324
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
