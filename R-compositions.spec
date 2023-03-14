@@ -4,7 +4,7 @@
 #
 Name     : R-compositions
 Version  : 2.0.5
-Release  : 56
+Release  : 57
 URL      : https://cran.r-project.org/src/contrib/compositions_2.0-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/compositions_2.0-5.tar.gz
 Summary  : Compositional Data Analysis
@@ -19,9 +19,6 @@ BuildRequires : R-bayesm
 BuildRequires : R-robustbase
 BuildRequires : R-tensorA
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 data (e.g. portions of substances) and positive numbers (e.g. concentrations) 
@@ -53,10 +50,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675638177
+export SOURCE_DATE_EPOCH=1678813471
 
 %install
-export SOURCE_DATE_EPOCH=1675638177
+export SOURCE_DATE_EPOCH=1678813471
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-compositions
 cp %{_builddir}/compositions/COPYING %{buildroot}/usr/share/package-licenses/R-compositions/075d599585584bb0e4b526f5c40cb6b17e0da35a || :
